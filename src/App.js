@@ -5,6 +5,7 @@ import styles from "./App.module.css";
 import { fetchData } from "./api";
 
 import coronaImage from "./images/image.png";
+import { Typography } from "@material-ui/core";
 
 class App extends React.Component {
   state = {
@@ -32,6 +33,16 @@ class App extends React.Component {
         <img className={styles.image} src={coronaImage} alt="covid19" />
         <Cards data={data} />
         <CountryPicker handleCountryChange={this.handleCountryChange} />
+        <Typography
+          style={{
+            color: "#686868",
+            fontWeight: 700,
+            fontSize: "1rem",
+            marginBottom: "0.5rem",
+          }}
+        >
+          {country ? `Current state in ${country}` : "Worldwide statistics"}
+        </Typography>
         <Chart data={data} country={country} />
       </div>
     );
